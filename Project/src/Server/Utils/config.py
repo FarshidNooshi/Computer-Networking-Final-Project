@@ -1,7 +1,7 @@
 class Config:
     def __init__(self):
         self.config = {
-            'port': 8888,
+            'port': 8080,
             'host': 'localhost',
             'threads': [],
             'metrics': {
@@ -9,7 +9,7 @@ class Config:
                 'memory_available': 0,
                 'bytes_sent': 0
             },
-            'prometheus_port': 5001
+            'prometheus_port': 8000
         }
 
     def get_config(self, key):

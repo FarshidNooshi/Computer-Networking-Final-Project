@@ -14,13 +14,21 @@ class Client:
         self.name = client_name
 
     def run(self):
-        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+        global s
+        try:
+            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.connect((self.server_host, self.server_port))
             s.sendall(self.name.encode())
             print('connected')
             while True:
                 values = self.gather_metrics()
-                s.sendall(json.dumps(values).encode())
+                encoded_values = json.dumps(values).encode()
+                s.sendall(encoded_values)
+                print('here from client')
+        except Exception as e:
+            print(e)
+        finally:
+            s.close()
 
     @staticmethod
     def gather_metrics():
