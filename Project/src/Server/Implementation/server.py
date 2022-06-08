@@ -4,6 +4,7 @@ from prometheus_client import start_http_server
 
 from src.Server.Utils.ClientHandler import ClientHandler
 from src.Server.Utils.config import Config
+from src.Server.Utils.prometheus_handler import PrometheusHandler
 
 
 class Server:
@@ -16,7 +17,7 @@ class Server:
 
     def run(self):
         global s
-        run_prometheus(self.config.get_config('prometheus_port'))
+        PrometheusHandler().run_prometheus(self.config.get_config('prometheus_port'))
         try:
             s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
             s.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
@@ -36,12 +37,3 @@ class Server:
         for item in self.threads:
             item.conn.close()
             item.join()
-
-
-def run_prometheus(port):
-    start_http_server(port)
-
-
-if __name__ == '__main__':
-    server = Server()
-    server.run()

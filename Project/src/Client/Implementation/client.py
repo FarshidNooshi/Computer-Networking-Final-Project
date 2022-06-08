@@ -38,8 +38,3 @@ class Client:
             'bytes_sent': psutil.net_io_counters().bytes_sent
         }
         return metrics
-
-
-if __name__ == '__main__':
-    client = Client('client1')
-    client.run()
