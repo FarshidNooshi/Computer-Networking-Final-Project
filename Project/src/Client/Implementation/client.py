@@ -1,9 +1,11 @@
 import json
 import socket
+from time import sleep
 
 import psutil
 
-from src.Server.Utils.config import Config
+from src.Business.config import Config
+from src.Business.log.logger import MyLogger
 
 
 class Client:
@@ -14,27 +16,35 @@ class Client:
         self.name = client_name
 
     def run(self):
-        global s
-        try:
-            s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-            s.connect((self.server_host, self.server_port))
-            s.sendall(self.name.encode())
-            print('connected')
-            while True:
-                values = self.gather_metrics()
-                encoded_values = json.dumps(values).encode()
-                s.sendall(encoded_values)
-                print('here from client')
-        except Exception as e:
-            print(e)
-        finally:
-            s.close()
+        logger = MyLogger('project.client')
+        while True:
+            sleep(3)
+            global s
+            try:
+                s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+                s.connect((self.server_host, self.server_port))
+                s.sendall(self.name.encode())
+                logger.info(f'Client {self.name} connected to server')
+                while True:
+                    if s.connect_ex((self.server_host, self.server_port)) == 0:
+                        logger.error(f'Client {self.name} disconnected')
+                        s.close()
+                        break
+                    values = self.create_metrics()
+                    encoded_values = json.dumps(values).encode()
+                    s.sendall(encoded_values)
+                    logger.info(f'Client {self.name} sent metrics')
+            except Exception as e:
+                logger.error(f'Client {self.name} error: {e}')
+            finally:
+                s.close()
 
     @staticmethod
-    def gather_metrics():
+    def create_metrics():
         metrics = {
-            'cpu_percent': psutil.cpu_percent(interval=1),
+            'cpu_utilization_percent': psutil.cpu_percent(interval=1),
             'memory_available': psutil.virtual_memory().available,
-            'bytes_sent': psutil.net_io_counters().bytes_sent
+            'num_bytes_sent': psutil.net_io_counters().bytes_sent,
+            'num_errors_recv': psutil.net_io_counters().errin,
         }
         return metrics

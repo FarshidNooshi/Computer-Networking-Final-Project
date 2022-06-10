@@ -1,0 +1,11 @@
+{
+   "port": 8080,
+   "host": "localhost",
+   "metrics": {
+      "cpu_utilization_percent": 0,
+      "memory_available": 0,
+      "num_bytes_sent": 0,
+      "num_errors_recv": 0
+   },
+   "prometheus_port": 8000
+}
