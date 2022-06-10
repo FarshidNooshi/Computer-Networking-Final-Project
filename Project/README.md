@@ -40,10 +40,13 @@ For installation, you can run the following command:
 
 ## How to run the project
 
-inorder to run the project, you should run the following command in the `Project/src/Client` folder:
+1. replace the `Project/prometheus.yml` file with the `prometheus.yml` file of the one you downloaded from the link above.
+2. run `prometheus` in your system.
+
+3. inorder to run the project, you should run the following command in the `Project/src/Client` folder:
 > python3 main.py
 
-In a separate terminal, you should run the following command in the `Project/src/Server` folder:
+4. In a separate terminal, you should run the following command in the `Project/src/Server` folder:
 > python3 main.py
 
 # Metrics
