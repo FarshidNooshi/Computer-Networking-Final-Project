@@ -1,5 +1,3 @@
-from time import sleep
-
 from src.Business.log.logger import MyLogger
 from src.Server.Implementation.server import Server
 
