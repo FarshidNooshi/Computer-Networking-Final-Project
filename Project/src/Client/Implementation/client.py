@@ -28,7 +28,6 @@ class Client:
                 while True:
                     if s.connect_ex((self.server_host, self.server_port)) == 0:
                         logger.error(f'Client {self.name} disconnected')
-                        s.close()
                         break
                     values = self.create_metrics()
                     encoded_values = json.dumps(values).encode()

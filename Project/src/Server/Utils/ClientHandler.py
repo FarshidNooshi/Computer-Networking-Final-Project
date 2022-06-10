@@ -12,7 +12,7 @@ class ClientHandler(Thread):
         super().__init__()
         self.conn = conn
         self.lock = lock
-        self.logger = MyLogger('project.server')
+        self.logger = MyLogger('project.server.client_handler')
         self.name = self.conn.recv(1024).decode()
         self.logger.info(f'Client name is {self.name}')
         self.cpu = None
