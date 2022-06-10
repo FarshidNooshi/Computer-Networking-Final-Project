@@ -32,9 +32,8 @@ prometheus-client
 ```
 
 you should also download and install the prometheus for your system from the following link:\
-<h6>
 [Prometheus Download Page](https://prometheus.io/download/)
-</h6>
+
 For installation, you can run the following command:
 > pip install -r requirements.txt
 
