@@ -51,6 +51,6 @@ class ClientHandler(Thread):
         self.cpu = Gauge(f'cpu_utilization_percent', 'percentage of cpu usage right now.', labelnames=['client_name'])
         self.mem = Gauge(f'memory_available', 'available memory in bytes.', labelnames=['client_name'])
         self.net = Counter(f'network_usage_total', 'total number of received bytes.', labelnames=['client_name'])
-        self.client_net = Counter(f'network_sendtotal', 'total number of send bytes.', labelnames=['client_name'])
+        self.client_net = Counter(f'network_send_total', 'total number of send bytes.', labelnames=['client_name'])
         self.err_net = Counter(f'received_error_total', 'total number of errors while receiving.',
                                labelnames=['client_name'])
