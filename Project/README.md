@@ -91,8 +91,14 @@ def update_metrics(self, client_name, metrics, sz):
 5. done!
 
 # Screenshots
-![](https://i.imgur.com/XqQZQZL.png)
-
+![Image][1]
+![Image][2]
+![Image][3]
+![Image][4]
 # Contributors
 * Farshid Nooshi
 
+[1]: https://github.com/FarshidNooshi/Computer-Networking-CE.AUT/blob/main/Project/doc/screenshots/prometheus1.png
+[2]: https://github.com/FarshidNooshi/Computer-Networking-CE.AUT/blob/main/Project/doc/screenshots/prometheus2.png
+[3]: https://github.com/FarshidNooshi/Computer-Networking-CE.AUT/blob/main/Project/doc/screenshots/terminal.png
+[4]: https://github.com/FarshidNooshi/Computer-Networking-CE.AUT/blob/main/Project/doc/screenshots/prometheus_client.png
