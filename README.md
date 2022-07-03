@@ -35,7 +35,9 @@ you should also download and install the prometheus for your system from the fol
 [Prometheus Download Page](https://prometheus.io/download/)
 
 For installation, you can run the following command:
-> pip install -r requirements.txt
+```console
+pip install -r requirements.txt
+```
 
 ## How to run the project
 
@@ -43,10 +45,14 @@ For installation, you can run the following command:
 2. run `prometheus` in your system.
 
 3. inorder to run the project, you should run the following command in the `Project/src/Client` folder:
-> python3 main.py
+```console
+python3 main.py
+```
 
 4. In a separate terminal, you should run the following command in the `Project/src/Server` folder:
-> python3 main.py
+```console
+python3 main.py
+```
 
 # Metrics
 
