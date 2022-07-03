@@ -101,7 +101,7 @@ def update_metrics(self, client_name, metrics, sz):
 ![Image][3]
 ![Image][4]
 # Contributors
-* Farshid Nooshi
+* [Farshid Nooshi](https://github.com/FarshidNooshi)
 
 [1]: https://github.com/FarshidNooshi/Computer-Networking-CE.AUT/blob/main/Project/doc/screenshots/prometheus1.png
 [2]: https://github.com/FarshidNooshi/Computer-Networking-CE.AUT/blob/main/Project/doc/screenshots/prometheus2.png
